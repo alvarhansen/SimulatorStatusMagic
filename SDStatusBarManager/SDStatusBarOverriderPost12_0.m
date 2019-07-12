@@ -183,6 +183,23 @@ typedef struct {
 @synthesize iPadDateEnabled;
 @synthesize iPadGsmSignalEnabled;
 
+- (void)clearStatusBar {
+  StatusBarOverrideData *overrides = [UIStatusBarServer getStatusBarOverrideData];
+
+  // Hide all items
+  for ( int i = 0; i < 29 ; i++ )
+  {
+    overrides->overrideItemIsEnabled[i] = 1;
+    overrides->values.itemIsEnabled[i] = 0;
+  }
+
+  // Actually update the status bar
+  [UIStatusBarServer postStatusBarOverrideData:overrides];
+
+  // Lock in the changes, reset simulator will remove this
+  [UIStatusBarServer permanentizeStatusBarOverrideData];
+}
+
 - (void)enableOverrides {
   StatusBarOverrideData *overrides = [UIStatusBarServer getStatusBarOverrideData];
 

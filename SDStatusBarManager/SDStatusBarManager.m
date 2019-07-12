@@ -84,6 +84,11 @@ static NSString * const SDStatusBarManagerDateStringKey = @"date_string";
 
   [self.overrider disableOverrides];
 }
+- (void)clearStatusBar
+{
+  self.usingOverrides = YES;
+  [self.overrider clearStatusBar];
+}
 
 #pragma mark Properties
 - (BOOL)usingOverrides

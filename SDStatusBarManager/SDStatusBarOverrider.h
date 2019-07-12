@@ -41,5 +41,6 @@
 
 - (void)enableOverrides;
 - (void)disableOverrides;
+- (void)clearStatusBar;
 
 @end

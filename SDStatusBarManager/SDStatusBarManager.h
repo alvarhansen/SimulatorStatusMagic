@@ -55,6 +55,7 @@ typedef NS_ENUM(NSInteger, SDStatusBarManagerNetworkType)
 
 - (void)enableOverrides;
 - (void)disableOverrides;
+- (void)clearStatusBar;
 
 + (SDStatusBarManager *)sharedInstance;
 
